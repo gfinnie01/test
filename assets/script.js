@@ -12,3 +12,28 @@ var questions = ("fourth");
 var state = ("start");
 var state = ("quiz");
 var state = ("end");
+
+
+function displayState() {
+    if( state == 'start' ) {
+        startEm.style.display = 'block';
+        quizEm.style.display = 'none';
+        endEm.style.display = 'none';
+    }
+}
+
+function displayState() {
+    if( state == 'quiz' ) {
+        startEm.style.display = 'block';
+        quizEm.style.display = 'none';
+        endEm.style.display = 'none';
+    }
+}
+
+function displayState() {
+    if( state == 'end' ) {
+        startEm.style.display = 'block';
+        quizEm.style.display = 'none';
+        endEm.style.display = 'none';
+    }
+}
