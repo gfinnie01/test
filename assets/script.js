@@ -1,0 +1,1 @@
+var startE1 = document.querySelector()
