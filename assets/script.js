@@ -1,1 +1,14 @@
-var startE1 = document.querySelector()
+var startEm = document.querySelector("#start");
+var quizEm = document.querySelector("#quiz");
+var endEm = document.querySelector("#end");
+var startBtn = document.querySelector("#start button");
+var submitScoreBtn = document.querySelector("#start button");
+var quizTitle = document.querySelector("#quiz title");
+var questionEm = document.querySelector("#questions");
+var questions = ("First");
+var questions = ("second");
+var questions = ("third");
+var questions = ("fourth");
+var state = ("start");
+var state = ("quiz");
+var state = ("end");
