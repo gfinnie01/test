@@ -8,6 +8,7 @@ var questionEm = document.querySelector("#questions");
 var questions = ["First", "second", "third", "fourth"];
 var state = ['start', 'quiz', 'end' ];
 var cursor = 0;
+var element = event.target;
 
 function displayState() {
     if( state == 'start' ) {
@@ -33,3 +34,17 @@ function displayState() {
         endEm.style.display = 'block';
     }
 }
+
+quizTitle.addEventListener("click", function
+(event) {
+    if (element.matches("h2")) {
+        var index =array.from(element.parrentElement.children).indexOf(element);
+        console.log(index);
+        cursor ++ ;
+    if (cursor >= questions.length) {
+        state = "end"; 
+        displayState();
+    }   else {
+        displayquestion();
+    }}
+});
