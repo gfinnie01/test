@@ -38,7 +38,7 @@
  }
 
  function resetState() {
-    nextButton.classList.add('hide')
+    nextButton.classList.add('hidden')
     while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild
         (answerButtonsElement.firstChild)
@@ -55,9 +55,20 @@
         setStatusClass(button.dataset.correct)
     }) 
 
-    
  }
 
+function setStatusClass(element, correct)  {
+    clearStatusClass(element)
+    if (correct) {
+        element.classList.add('correct')
+    } else  {
+        element.classList.add('wrong')
+    }
+}
+
+function clearStatusClass(element) {}
+element.classList.remove('correct')
+element.classList.remove('wrong')
  var questions = [
     {
         question: 'what is my name', 
