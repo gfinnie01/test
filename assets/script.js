@@ -4,15 +4,15 @@
  var answerButtonsElement = document.getElementById('ans-butn')
  var nextButton = document.getElementById('next-butn')
  
+ let shuffledQuestions, currentQuestionIndex
+
  startButton.addEventListener('click', startGame)
  nextButton.addEventListener('click', () => {
     currentQuestionIndex++
     setNextQuestion()
  })
- let shuffledQuestions, currentQuestionIndex
 
  function startGame() {
-    console.log('Started')
     startButton.classList.add('hidden')
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
@@ -28,7 +28,7 @@
  function showQuestion(question) {
     questionElement.innerText = question.question
     question.answers.forEach(answer => {
-        var button = document.createElement('button')
+        var button = document.createElement('butn')
         button.innerText = answer.text
         button.classList.add('butn')
         if (answer.correct) {
@@ -54,13 +54,15 @@
     var correct = selectedButton.dataset.correct
     setStatusClass(document.body, correct)
     Array.from(answerButtonsElement).forEach( button => {
-        setStatusClass(button)
-        setStatusClass(button.dataset.correct)
+        setStatusClass(button ,button.dataset.correct)
     }) 
-    nextButton.classList.remove('hidden')
-
+    if (shuffledQuestions.length > currentQuestionIndex + 1 )
+    {
+        nextButton.classList.remove('hidden')
+    } 
  }
 
+ 
 function setStatusClass(element, correct)  {
     clearStatusClass(element)
     if (correct) {
@@ -69,19 +71,28 @@ function setStatusClass(element, correct)  {
         element.classList.add('wrong')
     }
 }
-
 function clearStatusClass(element) {
     element.classList.remove('correct')
     element.classList.remove('wrong')
 }
-
  var questions = [
     {
-        question: 'what is my name', 
+        question: 'what is the file all you projects should have?', 
         answers: [
-            { text: 'Grant', correct: true },
-            { text: 'tommy', wrong: true }
+            { text: 'README.md', correct: true },
+            { text: 'images', correct: false }
         ]
-    }
-    
+    },
+    {
+         question: 'what is the file ending that has your java Script', 
+         answers: [
+        { text: '.js', correct: true },
+        { text: '.JS', correct: false }
+  ] } ,
+  {
+    question: 'waht folder should your css file be in', 
+    answers: [
+   { text: 'style', correct: true },
+   { text: 'index', correct: false }
+] },  
  ]
