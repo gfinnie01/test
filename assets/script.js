@@ -5,7 +5,10 @@
  var nextButton = document.getElementById('next-butn')
  
  startButton.addEventListener('click', startGame)
-
+ nextButton.addEventListener('click', () => {
+    currentQuestionIndex++
+    setNextQuestion()
+ })
  let shuffledQuestions, currentQuestionIndex
 
  function startGame() {
@@ -50,10 +53,11 @@
     var selectedButton = happy.target
     var correct = selectedButton.dataset.correct
     setStatusClass(document.body, correct)
-    Array.from(answerButtonsElement.children).forEach(button => {
+    Array.from(answerButtonsElement).forEach( button => {
         setStatusClass(button)
         setStatusClass(button.dataset.correct)
     }) 
+    nextButton.classList.remove('hidden')
 
  }
 
@@ -66,15 +70,17 @@ function setStatusClass(element, correct)  {
     }
 }
 
-function clearStatusClass(element) {}
-element.classList.remove('correct')
-element.classList.remove('wrong')
+function clearStatusClass(element) {
+    element.classList.remove('correct')
+    element.classList.remove('wrong')
+}
+
  var questions = [
     {
         question: 'what is my name', 
         answers: [
             { text: 'Grant', correct: true },
-            { text: 'tommy', correct: false }
+            { text: 'tommy', wrong: true }
         ]
     }
     

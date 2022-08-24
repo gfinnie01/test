@@ -6,7 +6,7 @@ html, * {
 
 :root {
     --hue-nutral: 50;
-    --hue-wrong: 0;
+    --hue-wrong: 100;
     --hue-correct: 150;
 }
 
